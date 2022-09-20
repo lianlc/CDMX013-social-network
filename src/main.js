@@ -1,11 +1,11 @@
-import { welcome } from './components/welcome.js';
+import { Welcome } from './components/welcome.js';
 import { register } from './components/register.js';
 import { login } from './components/login.js';
 
 const root = document.getElementById('root');
 
 const routes = {
-  '/': welcome,
+  '/': Welcome,
   '/login': login,
   '/register': register,
   '/wall': Wall,
