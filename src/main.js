@@ -26,6 +26,9 @@ window.onpopstate = () => {
   root.removeChild(root.firstChild);
   root.append(component());
 };
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2402b148ebebf184efbbac8dc6f07912678a39be
 root.appendChild(component());
 // myFunction();
