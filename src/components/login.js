@@ -13,7 +13,7 @@ export const login = () => {
   //  - - - const logoGitHub = document.createElement('img');
   //  - - - const logoMail = document.createElement('img');
   //  - - - const logoTwetter = document.createElement('img');
-  const textReserved = document.createElement('p');
+  const copyright = document.createElement('p');
 
   // CONTENIDO DE LOS ELENETOS **
   title.textContent = 'RedEAT';
@@ -21,7 +21,7 @@ export const login = () => {
   img.setAttribute('src', './material/User.png'); //* *
   buttonContinius.textContent = 'CONTINUAR';
   //  - - - secctionO.textContent = '- o -';
-  textReserved.textContent = 'Todos los derechos reservados, 2022';
+  copyright.textContent = 'Todos los derechos reservados, 2022';
 
   // INSERTA ELEMENTOS AL DIV **
   div.append(
@@ -31,7 +31,7 @@ export const login = () => {
     inputMail,
     inputPass,
     buttonContinius,
-    textReserved
+    copyright
   );
 
   buttonContinius.addEventListener('click', () => {
