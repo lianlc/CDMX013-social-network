@@ -8,7 +8,7 @@ const routes = {
   '/': Welcome,
   '/login': login,
   '/register': register,
-  '/wall': Wall,
+  //'/wall': Wall,
 };
 
 export const onNavigate = (pathname) => {
