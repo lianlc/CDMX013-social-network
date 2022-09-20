@@ -6,17 +6,13 @@ const root = document.getElementById('root');
 
 const routes = {
   '/': Welcome,
-   '/login': login,
-   '/register': register,
-   '/wall': Wall,
+  '/login': login,
+  '/register': register,
+  '/wall': Wall,
 };
 
 export const onNavigate = (pathname) => {
-  window.history.pushState(
-    {},
-    pathname,
-    window.location.origin + pathname,
-  );
+  window.history.pushState({}, pathname, window.location.origin + pathname);
   root.removeChild(root.firstChild);
   root.appendChild(routes[pathname]());
 };
@@ -26,9 +22,5 @@ window.onpopstate = () => {
   root.removeChild(root.firstChild);
   root.append(component());
 };
-<<<<<<< HEAD
-=======
-
->>>>>>> 2402b148ebebf184efbbac8dc6f07912678a39be
 root.appendChild(component());
 // myFunction();
