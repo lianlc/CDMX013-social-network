@@ -1,14 +1,14 @@
-import { welcome } from './components/welcome.js';
+import { Welcome } from './components/welcome.js';
 import { register } from './components/register.js';
 import { login } from './components/login.js';
 
 const root = document.getElementById('root');
 
 const routes = {
-  '/': welcome,
-  '/login': login,
-  '/register': register,
-  '/wall': Wall,
+  '/': Welcome,
+   '/login': login,
+   '/register': register,
+   '/wall': Wall,
 };
 
 export const onNavigate = (pathname) => {
@@ -26,5 +26,9 @@ window.onpopstate = () => {
   root.removeChild(root.firstChild);
   root.append(component());
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2402b148ebebf184efbbac8dc6f07912678a39be
 root.appendChild(component());
 // myFunction();
