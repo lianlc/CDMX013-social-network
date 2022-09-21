@@ -8,15 +8,11 @@ const routes = {
   '/': Welcome,
   '/login': login,
   '/register': register,
-  '/wall': Wall,
+  // '/wall': Wall,
 };
 
 export const onNavigate = (pathname) => {
-  window.history.pushState(
-    {},
-    pathname,
-    window.location.origin + pathname,
-  );
+  window.history.pushState({}, pathname, window.location.origin + pathname);
   root.removeChild(root.firstChild);
   root.appendChild(routes[pathname]());
 };
