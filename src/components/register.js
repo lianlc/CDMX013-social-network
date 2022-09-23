@@ -1,6 +1,21 @@
 import { onNavigate } from '../main.js';
+import { addUser } from '../lib/auth.js';
 
+// REGISTTRO MEDIANTE CORREO Y CONTRASEÑA
 export const register = () => {
+  addUser('carlos@carlos.com', '123456')
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      console.log('se registro en mi red social fiu fiu ');
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+      console.log('nel no pues acceder a la red social fiu fiu', errorMessage);
+    });
   // para crear elementos del formulario
   const form = document.createElement('div');
   const title = document.createElement('h1');
@@ -30,17 +45,7 @@ export const register = () => {
   });
 
   // Insertar los elementos en el div
-  divInput.append(
-    inputName,
-    inputAge,
-    inputMail,
-    inputPass,
-    buttonRegis,
-  );
-  form.append(
-    title,
-    divInput,
-    copyright,
-  );
+  divInput.append(inputName, inputAge, inputMail, inputPass, buttonRegis);
+  form.append(title, divInput, copyright);
   return form;
 };
