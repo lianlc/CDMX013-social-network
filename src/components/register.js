@@ -33,7 +33,7 @@ export const register = () => {
     inputMail,
     inputPass,
     buttonRegis,
-    copyright
+    copyright,
   );
   return form;
 };
