@@ -27,17 +27,13 @@ export const login = () => {
   copyright.textContent = 'Todos los derechos reservados, 2022';
 
   // INSERTA ELEMENTOS AL DIV **
-  divInput.append(
-    inputMail,
-    inputPass,
-    buttonContinius,
-  );
+  divInput.append(inputMail, inputPass, buttonContinius);
   div.append(
     title,
     textLogin,
     /* img, */
     divInput,
-    copyright,
+    copyright
   );
 
   buttonContinius.addEventListener('click', () => {
