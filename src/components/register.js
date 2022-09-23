@@ -3,19 +3,6 @@ import { addUser } from '../lib/auth.js';
 
 // REGISTTRO MEDIANTE CORREO Y CONTRASEÑA
 export const register = () => {
-  addUser('carlos@carlos.com', '123456')
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      console.log('se registro en mi red social fiu fiu ');
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-      console.log('nel no pues acceder a la red social fiu fiu', errorMessage);
-    });
   // para crear elementos del formulario
   const form = document.createElement('div');
   const title = document.createElement('h1');
@@ -39,9 +26,29 @@ export const register = () => {
   buttonRegis.classList = 'buttonStyle';
   copyright.textContent = 'Todos los derechos reservados 2022';
   divInput.classList = 'divDirection';
+  inputMail.setAttribute('id', 'mail');
+  inputPass.setAttribute('id', 'pass');
+ 
+  // console.log(mail, password);
 
   buttonRegis.addEventListener('click', () => {
-    onNavigate('/login');
+    let mail = document.getElementById('mail').value;
+    let password = document.getElementById('pass').value;
+    addUser(mail, password)
+      .then((userCredential) => {
+      // Signed in
+        const user = userCredential.user;
+        onNavigate('/login');
+        console.log('se registro en mi red social fiu fiu ');
+      // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        console.log('nel no pues acceder a la red social fiu fiu', errorMessage);
+      });
+    // onNavigate('/login');
   });
 
   // Insertar los elementos en el div
