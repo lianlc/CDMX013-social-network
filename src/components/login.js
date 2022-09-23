@@ -33,7 +33,7 @@ export const login = () => {
     textLogin,
     /* img, */
     divInput,
-    copyright
+    copyright,
   );
 
   buttonContinius.addEventListener('click', () => {
