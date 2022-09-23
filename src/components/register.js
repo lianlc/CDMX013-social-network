@@ -1,16 +1,33 @@
 import { onNavigate } from '../main.js';
+import { addUser } from '../lib/auth.js';
 
+// REGISTTRO MEDIANTE CORREO Y CONTRASEÑA
 export const register = () => {
+  addUser('carlos@carlos.com', '123456')
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      console.log('se registro en mi red social fiu fiu ');
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+      console.log('nel no pues acceder a la red social fiu fiu', errorMessage);
+    });
   // para crear elementos del formulario
   const form = document.createElement('div');
   const title = document.createElement('h1');
   const formu = document.createElement('p');
+  const divInput = document.createElement('div');
   const inputName = document.createElement('input');
   const inputAge = document.createElement('input');
   const inputMail = document.createElement('input');
   const inputPass = document.createElement('input');
   const buttonRegis = document.createElement('button');
   const copyright = document.createElement('p');
+
   // contenido de los elementos
   title.textContent = 'RedEat';
   formu.textContent = 'Completa el formulario';
@@ -19,21 +36,16 @@ export const register = () => {
   inputMail.placeholder = 'Correo';
   inputPass.placeholder = 'Contraseña';
   buttonRegis.textContent = 'REGISTRATE';
+  buttonRegis.classList = 'buttonStyle';
   copyright.textContent = 'Todos los derechos reservados 2022';
+  divInput.classList = 'divDirection';
 
   buttonRegis.addEventListener('click', () => {
     onNavigate('/login');
   });
 
   // Insertar los elementos en el div
-  form.append(
-    title,
-    inputName,
-    inputAge,
-    inputMail,
-    inputPass,
-    buttonRegis,
-    copyright,
-  );
+  divInput.append(inputName, inputAge, inputMail, inputPass, buttonRegis);
+  form.append(title, divInput, copyright);
   return form;
 };

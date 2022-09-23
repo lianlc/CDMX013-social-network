@@ -6,6 +6,7 @@ export const login = () => {
   const title = document.createElement('h1');
   const textLogin = document.createElement('p');
   const img = document.createElement('img');
+  const divInput = document.createElement('div');
   const inputMail = document.createElement('input');
   const inputPass = document.createElement('input');
   const buttonContinius = document.createElement('button');
@@ -19,18 +20,19 @@ export const login = () => {
   title.textContent = 'RedEAT';
   textLogin.textContent = 'Inicia sesión';
   img.setAttribute('src', './material/User.png'); //* *
+  divInput.classList = 'divDirection';
   buttonContinius.textContent = 'CONTINUAR';
+  buttonContinius.classList = 'buttonStyle';
   //  - - - secctionO.textContent = '- o -';
   copyright.textContent = 'Todos los derechos reservados, 2022';
 
   // INSERTA ELEMENTOS AL DIV **
+  divInput.append(inputMail, inputPass, buttonContinius);
   div.append(
     title,
     textLogin,
     /* img, */
-    inputMail,
-    inputPass,
-    buttonContinius,
+    divInput,
     copyright
   );
 
