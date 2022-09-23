@@ -1,4 +1,5 @@
 import { onNavigate } from '../main.js';
+import { loginUser } from '../lib/auth.js';
 
 export const login = () => {
   // CREA ELEMENTOS **
@@ -17,6 +18,8 @@ export const login = () => {
   const copyright = document.createElement('p');
 
   // CONTENIDO DE LOS ELENETOS **
+  inputMail.setAttribute('id', 'mail');
+  inputPass.setAttribute('id', 'pass');
   title.textContent = 'RedEAT';
   textLogin.textContent = 'Inicia sesión';
   img.setAttribute('src', './material/User.png'); //* *
@@ -37,7 +40,21 @@ export const login = () => {
   );
 
   buttonContinius.addEventListener('click', () => {
-    onNavigate('/wall');
+    const mail = document.getElementById('mail').value;
+    const password = document.getElementById('pass').value;
+    loginUser(mail, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log('Bienvenid@');
+        onNavigate('/wall');
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('No bienvenido', errorMessage);
+      });
   });
   // buttonBack.addEventListener('click', () => {
   //  onNavigate('/');
