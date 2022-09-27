@@ -1,5 +1,7 @@
+// import { singInUserWithProviders } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 import { onNavigate } from '../main.js';
-import { loginUser } from '../lib/auth.js';
+import { loginUser, loginwithGoogle, providerGoogle } from '../lib/auth.js';
+// import { app } from '../lib/config.js';
 
 export const login = () => {
   // CREA ELEMENTOS **
@@ -11,6 +13,7 @@ export const login = () => {
   const inputMail = document.createElement('input');
   const inputPass = document.createElement('input');
   const buttonContinius = document.createElement('button');
+  const buttonGoogle = document.createElement('button');
   //  - - - const secctionO = document.createElement('p');
   //  - - - const logoGitHub = document.createElement('img');
   //  - - - const logoMail = document.createElement('img');
@@ -22,22 +25,26 @@ export const login = () => {
   inputPass.setAttribute('id', 'pass');
   title.textContent = 'RedEAT';
   textLogin.textContent = 'Inicia sesión';
-  img.setAttribute('src', './material/User.png'); //* *
+  img.setAttribute(
+    'src',
+    'https://i.postimg.cc/X7FRfSYd/iconmonstr-user-19-240.png'
+  ); //* *
   divInput.classList = 'divDirection';
   buttonContinius.textContent = 'CONTINUAR';
   buttonContinius.classList = 'buttonStyle';
   //  - - - secctionO.textContent = '- o -';
   copyright.textContent = 'Todos los derechos reservados, 2022';
 
+  buttonGoogle.textContent = 'Google';
+
+  buttonGoogle.addEventListener('click', () => {
+    // singInUserWithProviders(providerGoogle);
+    loginwithGoogle();
+  });
+
   // INSERTA ELEMENTOS AL DIV **
-  divInput.append(inputMail, inputPass, buttonContinius);
-  div.append(
-    title,
-    textLogin,
-    /* img, */
-    divInput,
-    copyright,
-  );
+  divInput.append(inputMail, inputPass, buttonContinius, buttonGoogle);
+  div.append(title, textLogin, img, divInput, copyright);
 
   buttonContinius.addEventListener('click', () => {
     const mail = document.getElementById('mail').value;
@@ -56,6 +63,7 @@ export const login = () => {
         console.log('No bienvenido', errorMessage);
       });
   });
+
   // buttonBack.addEventListener('click', () => {
   //  onNavigate('/');
   // });
