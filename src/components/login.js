@@ -8,43 +8,40 @@ export const login = () => {
   const div = document.createElement('div');
   const title = document.createElement('h1');
   const textLogin = document.createElement('p');
-  const img = document.createElement('img');
+  //const img = document.createElement('img');
   const divInput = document.createElement('div');
   const inputMail = document.createElement('input');
   const inputPass = document.createElement('input');
   const buttonContinius = document.createElement('button');
-  const buttonGoogle = document.createElement('button');
+  const google = document.createElement('div');
   //  - - - const secctionO = document.createElement('p');
   //  - - - const logoGitHub = document.createElement('img');
-  //  - - - const logoMail = document.createElement('img');
+  const logoMail = document.createElement('img');
   //  - - - const logoTwetter = document.createElement('img');
   const copyright = document.createElement('p');
 
   // CONTENIDO DE LOS ELENETOS **
   inputMail.setAttribute('id', 'mail');
   inputPass.setAttribute('id', 'pass');
+  logoMail.setAttribute('id', 'Gmail'); //**
   title.textContent = 'RedEAT';
   textLogin.textContent = 'Inicia sesión';
-  img.setAttribute(
-    'src',
-    'https://i.postimg.cc/X7FRfSYd/iconmonstr-user-19-240.png'
-  ); //* *
   divInput.classList = 'divDirection';
   buttonContinius.textContent = 'CONTINUAR';
   buttonContinius.classList = 'buttonStyle';
   //  - - - secctionO.textContent = '- o -';
   copyright.textContent = 'Todos los derechos reservados, 2022';
+  logoMail.setAttribute('src', 'https://i.postimg.cc/xCQmJ5nw/gmail.png');
 
-  buttonGoogle.textContent = 'Google';
-
-  buttonGoogle.addEventListener('click', () => {
+  google.addEventListener('click', () => {
     // singInUserWithProviders(providerGoogle);
     loginwithGoogle();
   });
 
   // INSERTA ELEMENTOS AL DIV **
-  divInput.append(inputMail, inputPass, buttonContinius, buttonGoogle);
-  div.append(title, textLogin, img, divInput, copyright);
+  google.append(logoMail);
+  divInput.append(inputMail, inputPass, buttonContinius);
+  div.append(title, textLogin, divInput, google, copyright);
 
   buttonContinius.addEventListener('click', () => {
     const mail = document.getElementById('mail').value;
