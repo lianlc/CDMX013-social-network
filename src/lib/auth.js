@@ -12,16 +12,12 @@ import { app } from './config.js';
 const auth = getAuth();
 
 export const providerGoogle = new GoogleAuthProvider();
-
-// export const provider = new firebase.auth.GoogleAuthProvider();
-
+// INICIO DE SESION CON CORREO Y CONTRASEÑA * *
 export const addUser = (email, password) =>
   createUserWithEmailAndPassword(auth, email, password);
 export const loginUser = (email, password) =>
   signInWithEmailAndPassword(auth, email, password);
-
-// const provider = new GoogleAuthProvider();
-
+// INICIO DE SESION CON GOOGLE  * *
 export const loginwithGoogle = () => signInWithRedirect(auth, providerGoogle);
 window.onload = () => {
   getRedirectResult(auth)
@@ -29,7 +25,6 @@ window.onload = () => {
       // This gives you a Google Access Token. You can use it to access Google APIs.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-
       // The signed-in user info.
       const user = result.user;
       console.log(user);
