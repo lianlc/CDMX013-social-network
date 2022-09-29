@@ -1,4 +1,5 @@
 import { onNavigate } from '../main.js';
+import { loginwithGoogle } from '../lib/auth.js';
 
 export const Welcome = () => {
   const div = document.createElement('div');
@@ -7,18 +8,17 @@ export const Welcome = () => {
   const divInput = document.createElement('div');
   const buttonRegister = document.createElement('button');
   const copyright = document.createElement('p');
+  const logoGoogle = document.createElement('img');
 
   /* Creación de los elementos */
   buttonRegister.textContent = 'REGISTRATE';
   buttonLogin.textContent = 'INICIA SESIÓN';
   title.textContent = 'Bienvenidos';
   copyright.textContent = 'Todos los derechos reservados 2022';
-
-  buttonRegister.className = 'buttonRegister';
   buttonRegister.classList = 'buttonStyle';
   divInput.classList = 'divDirection';
-  div.classList = 'divContent';
-  buttonLogin.className = 'buttonLogin';
+  logoGoogle.setAttribute('src', 'https://i.postimg.cc/CLR5X5Vt/gmail.png');
+  logoGoogle.classList = 'logoStyle';
   buttonLogin.classList = 'buttonStyle';
 
   buttonLogin.addEventListener('click', () => {
@@ -28,7 +28,12 @@ export const Welcome = () => {
   buttonRegister.addEventListener('click', () => {
     onNavigate('/register');
   });
-  divInput.append(buttonLogin, buttonRegister);
+  logoGoogle.addEventListener('click', () => {
+    loginwithGoogle();
+    // onNavigate('/wall');
+  });
+
+  divInput.append(buttonLogin, buttonRegister, logoGoogle);
   div.append(title, divInput, copyright);
 
   return div;
