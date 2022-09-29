@@ -8,16 +8,18 @@ export const Welcome = () => {
   const buttonRegister = document.createElement('button');
   const copyright = document.createElement('p');
 
-  div.classList = 'divContent';
+  /* Creación de los elementos */
   buttonRegister.textContent = 'REGISTRATE';
-  buttonRegister.className = 'buttonRegister';
-  buttonRegister.classList = 'buttonStyle';
   buttonLogin.textContent = 'INICIA SESIÓN';
-  buttonLogin.className = 'buttonLogin';
-  buttonLogin.classList = 'buttonStyle';
   title.textContent = 'Bienvenidos';
   copyright.textContent = 'Todos los derechos reservados 2022';
+
+  buttonRegister.className = 'buttonRegister';
+  buttonRegister.classList = 'buttonStyle';
   divInput.classList = 'divDirection';
+  div.classList = 'divContent';
+  buttonLogin.className = 'buttonLogin';
+  buttonLogin.classList = 'buttonStyle';
 
   buttonLogin.addEventListener('click', () => {
     onNavigate('/login');
