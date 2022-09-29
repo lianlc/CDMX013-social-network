@@ -10,18 +10,16 @@ export const Welcome = () => {
   const copyright = document.createElement('p');
   const logoGoogle = document.createElement('img');
 
-  div.classList = 'divContent';
+  /* Creación de los elementos */
   buttonRegister.textContent = 'REGISTRATE';
-  buttonRegister.className = 'buttonRegister';
-  buttonRegister.classList = 'buttonStyle';
   buttonLogin.textContent = 'INICIA SESIÓN';
-  buttonLogin.className = 'buttonLogin';
-  buttonLogin.classList = 'buttonStyle';
   title.textContent = 'Bienvenidos';
   copyright.textContent = 'Todos los derechos reservados 2022';
+  buttonRegister.classList = 'buttonStyle';
   divInput.classList = 'divDirection';
   logoGoogle.setAttribute('src', 'https://i.postimg.cc/CLR5X5Vt/gmail.png');
   logoGoogle.classList = 'logoStyle';
+  buttonLogin.classList = 'buttonStyle';
 
   buttonLogin.addEventListener('click', () => {
     onNavigate('/login');
@@ -35,8 +33,8 @@ export const Welcome = () => {
     // onNavigate('/wall');
   });
 
-  divInput.append(buttonLogin, buttonRegister);
-  div.append(title, divInput, logoGoogle, copyright);
+  divInput.append(buttonLogin, buttonRegister, logoGoogle);
+  div.append(title, divInput, copyright);
 
   return div;
 };

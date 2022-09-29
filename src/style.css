@@ -1,7 +1,9 @@
 body {
   display: flex;
   justify-content: center;
+  font-family: 'Quicksand';
 }
+
 .divDirection {
   display: flex;
   flex-direction: column;
@@ -12,7 +14,12 @@ body {
   background-color: #df4b2d;
   color: #ffffff;
   border-radius: 10px;
-  padding: 5px;
+  font-size: 100%;
+  font-weight: normal;
+  width: 85%;
+  height: 50%;
+  top: 50%;
+  left: 60%;
 }
 
 .logoStyle {
