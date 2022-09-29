@@ -16,8 +16,8 @@ export const providerGoogle = new GoogleAuthProvider();
 export const addUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 export const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
 // INICIO DE SESION CON GOOGLE  * *
-export const loginwithGoogle = () => signInWithRedirect(auth, providerGoogle);
-window.onload = () => {
+export const loginwithGoogle = () => {
+  signInWithRedirect(auth, providerGoogle);
   getRedirectResult(auth)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access Google APIs.
