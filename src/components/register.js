@@ -28,25 +28,28 @@ export const register = () => {
   divInput.classList = 'divDirection';
   inputMail.setAttribute('id', 'mail');
   inputPass.setAttribute('id', 'pass');
- 
-  // console.log(mail, password);
 
+  // console.log(mail, password);
+  // EVENTOS  * *
   buttonRegis.addEventListener('click', () => {
-    let mail = document.getElementById('mail').value;
-    let password = document.getElementById('pass').value;
+    const mail = document.getElementById('mail').value;
+    const password = document.getElementById('pass').value;
     addUser(mail, password)
       .then((userCredential) => {
-      // Signed in
+        // Signed in
         const user = userCredential.user;
-        onNavigate('/login');
+        onNavigate('/wall');
         console.log('se registro en mi red social fiu fiu ');
-      // ...
+        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         // ..
-        console.log('nel no pues acceder a la red social fiu fiu', errorMessage);
+        console.log(
+          'nel no pues acceder a la red social fiu fiu',
+          errorMessage,
+        );
       });
     // onNavigate('/login');
   });
