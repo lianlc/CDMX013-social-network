@@ -6,9 +6,9 @@ import { loginUser } from '../lib/auth.js';
 export const login = () => {
   // CREA ELEMENTOS **
   const div = document.createElement('div');
-  const title = document.createElement('h1');
+  const title = document.createElement('img');
   const textLogin = document.createElement('p');
-  //  - - - const img = document.createElement('img');
+  const imgUser = document.createElement('img');
   const divInput = document.createElement('div');
   const inputMail = document.createElement('input');
   const inputPass = document.createElement('input');
@@ -16,17 +16,25 @@ export const login = () => {
   const copyright = document.createElement('p');
 
   // CONTENIDO DE LOS ELENETOS **
-  title.textContent = 'RedEAT';
+  div.classList = 'divDirection';
+  // title.textContent = 'RedEAT';
   textLogin.textContent = 'Inicia sesión';
   divInput.classList = 'divDirection';
   buttonContinius.textContent = 'CONTINUAR';
   buttonContinius.classList = 'buttonStyle';
   copyright.textContent = 'Todos los derechos reservados, 2022';
   // ATRIBUTOS  **
+  title.setAttribute('src', 'https://i.postimg.cc/d0jN93v0/RedE.png');
   inputMail.setAttribute('id', 'mail');
   inputPass.setAttribute('id', 'pass');
+  imgUser.setAttribute(
+    'src',
+    'https://i.postimg.cc/fW6CmMs0/iconmonstr-user-19-240.png'
+  );
+  imgUser.classList = 'logoUser';
+  title.classList = 'logoTitle';
   // INSERTA ELEMENTOS AL DIV **
-  divInput.append(inputMail, inputPass, buttonContinius);
+  divInput.append(imgUser, inputMail, inputPass, buttonContinius);
   div.append(title, textLogin, divInput, copyright);
   // EVENTOS **
   // * * INICIO CON CORREO Y CONTRASEÑA * *
