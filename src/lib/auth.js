@@ -13,10 +13,8 @@ const auth = getAuth();
 
 export const providerGoogle = new GoogleAuthProvider();
 // INICIO DE SESION CON CORREO Y CONTRASEÑA * *
-export const addUser = (email, password) =>
-  createUserWithEmailAndPassword(auth, email, password);
-export const loginUser = (email, password) =>
-  signInWithEmailAndPassword(auth, email, password);
+export const addUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+export const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
 // INICIO DE SESION CON GOOGLE  * *
 export const loginwithGoogle = () => {
   signInWithRedirect(auth, providerGoogle);
