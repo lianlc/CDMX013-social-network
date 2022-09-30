@@ -5,8 +5,8 @@ import { addUser } from '../lib/auth.js';
 export const register = () => {
   // para crear elementos del formulario
   const form = document.createElement('div');
-  const title = document.createElement('h1');
-  const formu = document.createElement('p');
+  const logoRedEat = document.createElement('img');
+  const formu = document.createElement('h1');
   const divInput = document.createElement('div');
   const inputName = document.createElement('input');
   const inputAge = document.createElement('input');
@@ -16,12 +16,15 @@ export const register = () => {
   const copyright = document.createElement('p');
 
   // contenido de los elementos
-  title.textContent = 'RedEat';
+  form.classList = 'divDirection';
+  logoRedEat.setAttribute('src', 'https://i.postimg.cc/v8KSd9Z6/RedE.png');
+  logoRedEat.classList = 'logoTitle';
   formu.textContent = 'Completa el formulario';
   inputName.placeholder = 'Nombre';
   inputAge.placeholder = 'Edad';
   inputMail.placeholder = 'Correo';
   inputPass.placeholder = 'Contraseña';
+  inputPass.setAttribute('type', 'password');
   buttonRegis.textContent = 'REGISTRATE';
   buttonRegis.classList = 'buttonStyle';
   copyright.textContent = 'Todos los derechos reservados 2022';
@@ -56,6 +59,6 @@ export const register = () => {
 
   // Insertar los elementos en el div
   divInput.append(inputName, inputAge, inputMail, inputPass, buttonRegis);
-  form.append(title, divInput, copyright);
+  form.append(logoRedEat, formu, divInput, copyright);
   return form;
 };

@@ -1,29 +1,54 @@
 body {
   display: flex;
   justify-content: center;
+  text-align:center;
   font-family: 'Quicksand';
 }
-
 .divDirection {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
-
+.logoTitle{
+  width: 70%;
+  height: 40%;
+  }
 .buttonStyle {
-  margin-top: 1%;
+  margin-top: 5%;
   background-color: #df4b2d;
   color: #ffffff;
   border-radius: 10px;
-  font-size: 100%;
+  font-size: 150%;
   font-weight: normal;
-  width: 85%;
-  height: 50%;
-  top: 50%;
-  left: 60%;
+  width: 55%;
+  height: 100%;
+  padding:5%;
 }
-
 .logoStyle {
   margin-top: 1%;
   width: 15%;
   height: 15%;
+  display: flex;
+}
+.logos{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5%;
+}
+.title{
+  opacity: 30%;
+}
+footer{
+  text-align:center;
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+}
+input{
+  margin-top: 5%;
+}
+.logoUser{
+  width: 40%;
+  height:40%;
 }
