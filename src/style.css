@@ -1,7 +1,7 @@
 body {
   display: flex;
   justify-content: center;
-  text-align:center;
+  text-align: center;
   font-family: 'Quicksand';
 }
 .divDirection {
@@ -22,7 +22,7 @@ body {
   font-weight: normal;
   width: 55%;
   height: 100%;
-  padding:5%;
+  padding: 5%;
 }
 .logoStyle {
   margin-top: 1%;
