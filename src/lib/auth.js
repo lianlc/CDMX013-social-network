@@ -15,10 +15,8 @@ const auth = getAuth();
 
 export const providerGoogle = new GoogleAuthProvider();
 // INICIO DE SESION CON CORREO Y CONTRASEÑA * *
-export const addUser = (email, password) => 
-createUserWithEmailAndPassword(auth, email, password);
-export const loginUser = (email, password) => 
-signInWithEmailAndPassword(auth, email, password);
+export const addUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+export const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
 // INICIO DE SESION CON GOOGLE  * *
 export const loginwithGoogle = () => {
   signInWithRedirect(auth, providerGoogle);
@@ -29,7 +27,7 @@ export const loginwithGoogle = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-      console.log(user);
+      console.log(user.email);
     })
     .catch((error) => {
       // Handle Errors here.
@@ -62,7 +60,7 @@ export const loginWhitGitHub = () => {
       console.log(user.email);
     })
     .catch((error) => {
-    // Handle Errors here.
+      // Handle Errors here.
       console.log(errorMessage);
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -70,7 +68,7 @@ export const loginWhitGitHub = () => {
       const email = error.customData.email;
       // The AuthCredential type that was used.
       const credential = GithubAuthProvider.credentialFromError(error);
-    // ...
+      // ...
     });
 };
 
