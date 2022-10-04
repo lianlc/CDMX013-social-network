@@ -1,8 +1,11 @@
 export const Publicar = () => {
   const div = document.createElement('div');
-  const input = document.createElement('input');
+  const title = document.createElement('h1');
+  const nameRestaurant = document.createElement('input');
+  const review = document.createElement('input');
   const button = document.createElement('button');
-  button.textContent = 'soy una serpiente que anda por el bosque';
-  div.append(input, button);
+  title.textContent = 'Bienvenidx';
+  button.textContent = 'COMPARTIR';
+  div.append(title, nameRestaurant, review, button);
   return div;
 };

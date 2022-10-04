@@ -1,5 +1,5 @@
 import { onNavigate } from '../main.js';
-import { loginwithGoogle } from '../lib/auth.js';
+import { loginwithGoogle, loginWhitGitHub } from '../lib/auth.js';
 
 export const Welcome = () => {
   /* Creación de los elementos */
@@ -25,11 +25,14 @@ export const Welcome = () => {
   buttonRegister.classList = 'buttonStyle';
   divInput.classList = 'divDirection';
   logoRed.setAttribute('src', 'https://i.postimg.cc/v8KSd9Z6/RedE.png');
-  logoGoogle.setAttribute('src', 'https://i.postimg.cc/CLR5X5Vt/gmail.png');
+  logoGoogle.setAttribute(
+    'src',
+    'https://i.postimg.cc/c1Trf3qD/btn-google-signin-light-normal-web.png'
+  );
   logoGit.setAttribute('src', 'https://i.postimg.cc/Gmwf6M09/github.png');
   logoTwitter.setAttribute('src', 'https://i.postimg.cc/jjgYVzQ9/twitter.png');
   logos.classList = 'logos';
-  logoGoogle.classList = 'logoStyle';
+  logoGoogle.classList = 'logoGoogleStyle';
   logoGit.classList = 'logoStyle';
   logoTwitter.classList = 'logoStyle';
   buttonLogin.classList = 'buttonStyle';
@@ -45,10 +48,13 @@ export const Welcome = () => {
     loginwithGoogle();
     // onNavigate('/wall');
   });
+  logoGit.addEventListener('click', () => {
+    loginWhitGitHub();
+  });
 
   divInput.append(buttonLogin, buttonRegister);
-  logos.append(logoGoogle, logoGit, logoTwitter);
-  div.append(title, logoRed, divInput, logos, footer);
+  logos.append(logoGit, logoTwitter);
+  div.append(title, logoRed, divInput, logos, logoGoogle, footer);
   footer.append(copyright);
 
   return div;

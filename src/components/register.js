@@ -13,6 +13,7 @@ export const register = () => {
   const inputMail = document.createElement('input');
   const inputPass = document.createElement('input');
   const buttonRegis = document.createElement('button');
+  const footer = document.createElement('footer');
   const copyright = document.createElement('p');
 
   // contenido de los elementos
@@ -26,7 +27,7 @@ export const register = () => {
   inputPass.placeholder = 'Contraseña';
   inputPass.setAttribute('type', 'password');
   buttonRegis.textContent = 'REGISTRATE';
-  buttonRegis.classList = 'buttonStyle';
+  buttonRegis.classList = 'buttonStyleContinius';
   copyright.textContent = 'Todos los derechos reservados 2022';
   divInput.classList = 'divDirection';
   inputMail.setAttribute('id', 'mail');
@@ -58,7 +59,15 @@ export const register = () => {
   });
 
   // Insertar los elementos en el div
-  divInput.append(inputName, inputAge, inputMail, inputPass, buttonRegis);
+  divInput.append(
+    inputName,
+    inputAge,
+    inputMail,
+    inputPass,
+    buttonRegis,
+    footer,
+  );
   form.append(logoRedEat, formu, divInput, copyright);
+  footer.append(copyright);
   return form;
 };
