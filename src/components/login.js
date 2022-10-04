@@ -13,6 +13,7 @@ export const login = () => {
   const inputMail = document.createElement('input');
   const inputPass = document.createElement('input');
   const buttonContinius = document.createElement('button');
+  const footer = document.createElement('footer');
   const copyright = document.createElement('p');
 
   // CONTENIDO DE LOS ELENETOS **
@@ -21,7 +22,7 @@ export const login = () => {
   textLogin.textContent = 'Inicia sesión';
   divInput.classList = 'divDirection';
   buttonContinius.textContent = 'CONTINUAR';
-  buttonContinius.classList = 'buttonStyle';
+  buttonContinius.classList = 'buttonStyleContinius';
   copyright.textContent = 'Todos los derechos reservados, 2022';
   // ATRIBUTOS  **
   title.setAttribute('src', 'https://i.postimg.cc/d0jN93v0/RedE.png');
@@ -35,7 +36,8 @@ export const login = () => {
   title.classList = 'logoTitle';
   // INSERTA ELEMENTOS AL DIV **
   divInput.append(imgUser, inputMail, inputPass, buttonContinius);
-  div.append(title, textLogin, divInput, copyright);
+  div.append(title, textLogin, divInput, footer);
+  footer.append(copyright);
   // EVENTOS **
   // * * INICIO CON CORREO Y CONTRASEÑA * *
   buttonContinius.addEventListener('click', () => {
