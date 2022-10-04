@@ -18,9 +18,19 @@ body {
   background-color: #df4b2d;
   color: #ffffff;
   border-radius: 10px;
-  font-size: 150%;
+  font-size: 140%;
   font-weight: normal;
   width: 55%;
+  height: 100%;
+  padding: 5%;
+}
+.buttonStyleContinius {
+  margin-top: 5%;
+  background-color: #df4b2d;
+  color: #ffffff;
+  border-radius: 10px;
+  font-size: 150%;
+  font-weight: normal;
   height: 100%;
   padding: 5%;
 }
@@ -34,6 +44,11 @@ body {
   display: flex;
   justify-content: space-evenly;
   margin-top: 5%;
+}
+.logoGoogleStyle {
+  width: 60%;
+  height: 60%;
+  padding-top: 5%;
 }
 .title {
   opacity: 30%;
@@ -51,4 +66,13 @@ input {
 .logoUser {
   width: 40%;
   height: 40%;
+}
+.singOffButton {
+  position: fixed;
+  right: 5%;
+  width: 10%;
+  height: 5%;
+}
+header {
+  margin-bottom: 5%;
 }
