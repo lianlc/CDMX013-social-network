@@ -1,5 +1,5 @@
 import { onNavigate } from '../main.js';
-import { loginwithGoogle } from '../lib/auth.js';
+import { loginwithGoogle, loginWithTwitter } from '../lib/auth.js';
 
 export const Welcome = () => {
   /* Creación de los elementos */
@@ -44,6 +44,10 @@ export const Welcome = () => {
   logoGoogle.addEventListener('click', () => {
     loginwithGoogle();
     // onNavigate('/wall');
+  });
+
+  logoTwitter.addEventListener('click', () => {
+    loginWithTwitter();
   });
 
   divInput.append(buttonLogin, buttonRegister);
