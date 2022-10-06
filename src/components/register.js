@@ -27,9 +27,10 @@ export const register = () => {
   inputPass.placeholder = 'Contraseña';
   inputPass.setAttribute('type', 'password');
   buttonRegis.textContent = 'REGISTRATE';
-  buttonRegis.classList = 'buttonStyleContinius';
+  buttonRegis.classList = 'buttonStyle';
   copyright.textContent = 'Todos los derechos reservados 2022';
-  divInput.classList = 'divDirection';
+  copyright.classList = 'copyrightStyle';
+  divInput.classList = 'divInputStyle';
   inputMail.setAttribute('id', 'mail');
   inputPass.setAttribute('id', 'pass');
 
@@ -59,15 +60,8 @@ export const register = () => {
   });
 
   // Insertar los elementos en el div
-  divInput.append(
-    inputName,
-    inputAge,
-    inputMail,
-    inputPass,
-    buttonRegis,
-    footer,
-  );
-  form.append(logoRedEat, formu, divInput, copyright);
+  divInput.append(inputName, inputAge, inputMail, inputPass);
+  form.append(logoRedEat, formu, divInput, buttonRegis, footer);
   footer.append(copyright);
   return form;
 };

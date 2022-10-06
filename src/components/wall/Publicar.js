@@ -12,7 +12,10 @@ export const Publicar = () => {
   nameRestaurant.setAttribute('id', 'restaurant');
   review.setAttribute('id', 'review');
 
-  button.addEventListener('click', savePost(nameRestaurant, review));
+  const res = document.getElementById('restaurant').value;
+  const rev = document.getElementById('review').value;
+
+  button.addEventListener('click', savePost(res, rev));
 
   div.append(title, nameRestaurant, review, button);
   return div;
