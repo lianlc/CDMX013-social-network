@@ -7,7 +7,7 @@ export const login = () => {
   // CREA ELEMENTOS **
   const div = document.createElement('div');
   const title = document.createElement('img');
-  const textLogin = document.createElement('p');
+  const textLogin = document.createElement('h1');
   const imgUser = document.createElement('img');
   const divInput = document.createElement('div');
   const inputMail = document.createElement('input');
@@ -21,13 +21,17 @@ export const login = () => {
   // title.textContent = 'RedEAT';
   textLogin.textContent = 'Inicia sesión';
   divInput.classList = 'divDirection';
+  inputMail.placeholder = 'Correo Electronico';
+  inputPass.placeholder = 'Contraseña';
   buttonContinius.textContent = 'CONTINUAR';
-  buttonContinius.classList = 'buttonStyleContinius';
+  buttonContinius.classList = 'buttonStyle';
   copyright.textContent = 'Todos los derechos reservados, 2022';
+  copyright.classList = 'copyrightStyle';
   // ATRIBUTOS  **
   title.setAttribute('src', 'https://i.postimg.cc/d0jN93v0/RedE.png');
   inputMail.setAttribute('id', 'mail');
   inputPass.setAttribute('id', 'pass');
+  inputPass.setAttribute('type', 'password');
   imgUser.setAttribute(
     'src',
     'https://i.postimg.cc/fW6CmMs0/iconmonstr-user-19-240.png'
@@ -35,8 +39,8 @@ export const login = () => {
   imgUser.classList = 'logoUser';
   title.classList = 'logoTitle';
   // INSERTA ELEMENTOS AL DIV **
-  divInput.append(imgUser, inputMail, inputPass, buttonContinius);
-  div.append(title, textLogin, divInput, footer);
+  divInput.append(imgUser, inputMail, inputPass);
+  div.append(title, textLogin, divInput, buttonContinius, footer);
   footer.append(copyright);
   // EVENTOS **
   // * * INICIO CON CORREO Y CONTRASEÑA * *
