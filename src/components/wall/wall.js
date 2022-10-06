@@ -1,7 +1,7 @@
 import { Publicar } from './Publicar.js';
 import { close } from '../../lib/auth.js';
-// imprimir post
 
+// imprimir post
 export const wall = () => {
   const div = document.createElement('div');
   const Header = document.createElement('header');
