@@ -10,7 +10,7 @@ export const Welcome = () => {
   const buttonRegister = document.createElement('button');
   const copyright = document.createElement('p');
   const logoGoogle = document.createElement('img');
-  const logoTwitter = document.createElement('img');
+  // const logoTwitter = document.createElement('img');
   const logoGit = document.createElement('img');
   const logoRed = document.createElement('img');
   const footer = document.createElement('footer');
@@ -21,6 +21,7 @@ export const Welcome = () => {
   buttonLogin.textContent = 'INICIA SESIÓN';
   title.textContent = 'Bienvenidos';
   copyright.textContent = 'Todos los derechos reservados 2022';
+  copyright.classList = 'copyrightStyle';
   title.classList = 'title';
   buttonRegister.classList = 'buttonStyle';
   divInput.classList = 'divDirection';
@@ -30,11 +31,11 @@ export const Welcome = () => {
     'https://i.postimg.cc/c1Trf3qD/btn-google-signin-light-normal-web.png'
   );
   logoGit.setAttribute('src', 'https://i.postimg.cc/Gmwf6M09/github.png');
-  logoTwitter.setAttribute('src', 'https://i.postimg.cc/jjgYVzQ9/twitter.png');
+  // logoTwitter.setAttribute('src', 'https://i.postimg.cc/jjgYVzQ9/twitter.png');
   logos.classList = 'logos';
   logoGoogle.classList = 'logoGoogleStyle';
   logoGit.classList = 'logoStyle';
-  logoTwitter.classList = 'logoStyle';
+  // logoTwitter.classList = 'logoStyle';
   buttonLogin.classList = 'buttonStyle';
 
   buttonLogin.addEventListener('click', () => {
@@ -52,9 +53,9 @@ export const Welcome = () => {
     loginWhitGitHub();
   });
 
-  divInput.append(buttonLogin, buttonRegister);
-  logos.append(logoGit, logoTwitter);
-  div.append(title, logoRed, divInput, logos, logoGoogle, footer);
+  divInput.append(buttonRegister, buttonLogin);
+  logos.append(logoGit);
+  div.append(title, logoRed, divInput, logoGoogle, logos, footer);
   footer.append(copyright);
 
   return div;
