@@ -28,7 +28,7 @@ export const Welcome = () => {
   logoRed.setAttribute('src', 'https://i.postimg.cc/v8KSd9Z6/RedE.png');
   logoGoogle.setAttribute(
     'src',
-    'https://i.postimg.cc/c1Trf3qD/btn-google-signin-light-normal-web.png'
+    'https://i.postimg.cc/c1Trf3qD/btn-google-signin-light-normal-web.png',
   );
   logoGit.setAttribute('src', 'https://i.postimg.cc/Gmwf6M09/github.png');
   // logoTwitter.setAttribute('src', 'https://i.postimg.cc/jjgYVzQ9/twitter.png');

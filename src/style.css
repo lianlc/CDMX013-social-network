@@ -6,6 +6,7 @@ body {
 }
 header {
   margin-bottom: 5%;
+  text-align: left;
 }
 h1 {
   margin-top: 10%;
@@ -89,4 +90,32 @@ footer {
 .copyrightStyle {
   width: 50%;
   opacity: 80%;
+}
+.logoHeader{
+  max-width: 30%;
+}
+div{
+  display: inline-block;
+}
+.inputReview, .inputRestaurant{
+  margin-top: 5%;
+  width: 80%;
+  background-color: #D9D9D9;  
+  border-block-end-color: #D9D9D9;
+  font-size: larger;
+  
+}
+#inputRestaurant{
+  height: 150px;
+}
+#inputReview{
+  height: 50px;
+ 
+}
+#buttonShare{
+  background-color: #B2CA10;
+  border-radius: 10px;
+  color:#ffffff;
+  font-size: large;
+  margin-top: 3%;
 }

@@ -2,18 +2,22 @@ import { savePost, getPost } from '../../lib/firestore.js';
 
 export const Publicar = () => {
   const div = document.createElement('div');
-  const title = document.createElement('h1');
-  const nameRestaurant = document.createElement('input');
-  const review = document.createElement('input');
-  const button = document.createElement('button');
-  const wall = document.createElement('div');
+  const messageWelcome = document.createElement('h1');
+  const inputRestaurant = document.createElement('input');
+  const inputReview = document.createElement('input');
+  const buttonShare = document.createElement('button');
+  inputReview.placeholder = '¿Cómo fue tu experiencia?';
+  inputReview.setAttribute('id', 'inputReview');
+  inputReview.classList = 'inputReview';
+  inputRestaurant.placeholder = '¿En qué lugar comiste?';
+  inputRestaurant.classList = 'inputRestaurant';
+  inputRestaurant.setAttribute = 'inputRestaurant';
+  messageWelcome.textContent = '¡Bienvenidx!';
+  buttonShare.textContent = 'Compartir';
+  buttonShare.setAttribute('id', 'buttonShare');
 
-  title.textContent = 'Bienvenidx';
-  button.textContent = 'COMPARTIR';
-  wall.setAttribute('id', 'wall');
-
-  button.addEventListener('click', () => {
-    savePost(nameRestaurant.value, review.value)
+  buttonShare.addEventListener('click', () => {
+    savePost(inputRestaurant.value, inputReview.value)
       .then(() => {
         getPost();
         console.log('Ya se armo, luego, que se ejecute otra función: mostrar post ');
@@ -30,7 +34,6 @@ export const Publicar = () => {
       });
   });
 
-  div.append(title, nameRestaurant, review, button);
-  // button.addEventListener('click', savePost(nameRestaurant.value, review.value));
+  div.append(messageWelcome, inputRestaurant, inputReview, buttonShare);
   return div;
 };
