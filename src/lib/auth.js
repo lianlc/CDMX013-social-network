@@ -51,9 +51,9 @@ export const loginWhitGitHub = () => {
     .then((result) => {
       const credential = GithubAuthProvider.credentialFromResult(result);
       if (credential) {
-        // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+      // This gives you a GitHub Access Token. You can use it to access the GitHub API.
         const token = credential.accessToken;
-        // ...
+      // ...
       }
 
       // The signed-in user info.

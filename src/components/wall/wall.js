@@ -1,7 +1,8 @@
 import { Publicar } from './Publicar.js';
 import { close } from '../../lib/auth.js';
-// imprimir post
+import { printPost } from './ImprimirPost.js';
 
+// imprimir post
 export const wall = () => {
   const logo = document.createElement('img');
   const div = document.createElement('div');
@@ -16,9 +17,11 @@ export const wall = () => {
   Header.append(signOff, logo);
   div.append(Header);
   div.appendChild(Publicar());
+  div.append(printPost());
 
   signOff.addEventListener('click', () => {
     close();
   });
+
   return div;
 };
