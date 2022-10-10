@@ -53,7 +53,7 @@ export const register = () => {
         // ..
         console.log(
           'nel no pues acceder a la red social fiu fiu',
-          errorMessage
+          errorMessage,
         );
       });
     // onNavigate('/login');
