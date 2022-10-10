@@ -10,6 +10,7 @@ export const wall = () => {
 
   signOff.setAttribute('src', 'https://i.postimg.cc/HW6M6BCg/Sign-off.png');
   logo.setAttribute('src', 'https://i.postimg.cc/v8KSd9Z6/RedE.png');
+  logo.classList = 'logoHeader';
   signOff.classList = 'singOffButton';
 
   Header.append(signOff, logo);
