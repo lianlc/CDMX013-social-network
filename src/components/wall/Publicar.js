@@ -19,6 +19,7 @@ export const Publicar = () => {
   buttonShare.addEventListener('click', () => {
     savePost(inputRestaurant.value, inputReview.value)
       .then(() => {
+        // resetar los valores de los inputs
         console.log('Ya se armo, luego, que se ejecute otra función: mostrar post ');
         // ...
       })
@@ -30,6 +31,8 @@ export const Publicar = () => {
           errorMessage,
         );
       });
+    document.getElementsByClassName('inputReview')[0].value = '';
+    document.getElementsByClassName('inputRestaurant')[0].value = '';
   });
 
   div.append(messageWelcome, inputRestaurant, inputReview, buttonShare);
