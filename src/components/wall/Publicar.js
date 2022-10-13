@@ -1,4 +1,4 @@
-import { savePost, getPost } from '../../lib/firestore.js';
+import { savePost } from '../../lib/firestore.js';
 
 export const Publicar = () => {
   const div = document.createElement('div');
@@ -19,7 +19,7 @@ export const Publicar = () => {
   buttonShare.addEventListener('click', () => {
     savePost(inputRestaurant.value, inputReview.value)
       .then(() => {
-        getPost();
+        // resetar los valores de los inputs
         console.log('Ya se armo, luego, que se ejecute otra función: mostrar post ');
         // ...
       })
@@ -32,6 +32,8 @@ export const Publicar = () => {
           errorMessage,
         );
       });
+    document.getElementsByClassName('inputReview')[0].value = '';
+    document.getElementsByClassName('inputRestaurant')[0].value = '';
   });
 
   div.append(messageWelcome, inputRestaurant, inputReview, buttonShare);

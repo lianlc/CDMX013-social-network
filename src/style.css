@@ -109,7 +109,7 @@ div{
   height: 150px;
 }
 #inputReview{
-  height: 50px;
+  height: 150px;
  
 }
 #buttonShare{
@@ -118,4 +118,11 @@ div{
   color:#ffffff;
   font-size: large;
   margin-top: 3%;
+}
+
+.printPost{
+  margin-top: 5%;
+  width: 80%;
+  background-color: #D9D9D9;  
+  font-size: larger;
 }
