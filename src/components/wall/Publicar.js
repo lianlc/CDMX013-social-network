@@ -1,4 +1,4 @@
-import { savePost, getPost } from '../../lib/firestore.js';
+import { savePost } from '../../lib/firestore.js';
 
 export const Publicar = () => {
   const div = document.createElement('div');
@@ -19,12 +19,10 @@ export const Publicar = () => {
   buttonShare.addEventListener('click', () => {
     savePost(inputRestaurant.value, inputReview.value)
       .then(() => {
-        getPost();
         console.log('Ya se armo, luego, que se ejecute otra función: mostrar post ');
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         // ..
         console.log(

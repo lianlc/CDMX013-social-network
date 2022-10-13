@@ -7,20 +7,20 @@ import { app } from './config.js';
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 // add documents
-const colRef = collection(db, 'post');
+// const colRef = collection(db, 'post');
 
 export const savePost = (restaurant, review) => addDoc(collection(db, 'post'), { restaurant, review });
 
 // listen when db have changes.
 // export const getPost = () => onSnapshot((collection(db, 'post')));
 
-export const getPost = () => onSnapshot(colRef, (snapsShot) => {
-  const reviews = [];
-  snapsShot.docs.forEach((doc) => {
-    reviews.push({ ...doc.data() });
-  });
-  console.log(reviews);
-});
+// export const getPost = () => onSnapshot(colRef, (snapsShot) => {
+//   const reviews = [];
+//   snapsShot.docs.forEach((doc) => {
+//     reviews.push({ ...doc.data });
+//   });
+//   console.log(reviews);
+// });
 
 // export const showDatos = (input) =>
 //  db.collection('post').onSnapshot((querySnapshot) => {
@@ -34,7 +34,11 @@ export const getPost = () => onSnapshot(colRef, (snapsShot) => {
 // export const getPosts = () => {
 //   db.collection('post').get().then((querySnapshot) => {
 //     querySnapshot.forEach((doc) => {
-//       document.getElementById('wall').innerHTML = `${doc.data().restaurant}`;
+//       console.log(`${doc.data().restaurant}`);
 //     });
 //   });
 // };
+
+export const getPost = (callback) => {
+  onSnapshot(collection(db, 'post'), callback);
+};
