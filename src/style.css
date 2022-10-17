@@ -126,3 +126,9 @@ div{
   background-color: #D9D9D9;  
   font-size: larger;
 }
+
+#deleteBtn{
+  background: url(https://i.postimg.cc/FHqySXyf/delete-FILL0-wght400-GRAD0-opsz48.png);
+  width: 50px;
+  height:50px;
+}

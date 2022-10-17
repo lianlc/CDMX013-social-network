@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 import { savePost } from '../../lib/firestore.js';
 
 export const Publicar = () => {
@@ -17,21 +19,21 @@ export const Publicar = () => {
   buttonShare.setAttribute('id', 'buttonShare');
 
   buttonShare.addEventListener('click', () => {
-    savePost(inputRestaurant.value, inputReview.value)
-      .then(() => {
-        // resetar los valores de los inputs
-        console.log('Ya se armo, luego, que se ejecute otra función: mostrar post ');
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-        console.log(
-          'nel no te salio. Escribe alog mejorcito',
-          errorMessage,
-        );
-      });
+    savePost(inputRestaurant.value, inputReview.value);
+    // .then(() => {
+    //   // resetar los valores de los inputs
+    //   console.log('Ya se armo, luego, que se ejecute otra función: mostrar post ');
+    //   // ...
+    // })
+    // .catch((error) => {
+    //   const errorCode = error.code;
+    //   const errorMessage = error.message;
+    //   // ..
+    //   console.log(
+    //     'nel no te salio. Escribe alog mejorcito',
+    //     errorMessage,
+    //   );
+    // });
     document.getElementsByClassName('inputReview')[0].value = '';
     document.getElementsByClassName('inputRestaurant')[0].value = '';
   });
