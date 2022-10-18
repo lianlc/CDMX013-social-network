@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 /* eslint-disable import/no-unresolved */
 // getFirestore, collection, onSnapshot,
-// import {
-//   doc,
-// } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js';
+// import { deletePost, getPost, savePost } from '../../lib/firestore.js';
 import { deletePost, getPost } from '../../lib/firestore.js';
 // import { app } from '../../lib/config.js';
+import { auth } from '../../lib/auth.js';
 
+export const user = auth.currentUser;
 export const printPost = () => {
   const div = document.createElement('div');
   div.classList = 'principalDiv';
@@ -17,7 +17,6 @@ export const printPost = () => {
     i.forEach((docs) => {
       console.log(docs.id, '=>', docs.data());
       const post = docs.data();
-
       const print = document.createElement('div');
       print.classList = 'printPost';
       const contentReview = document.createElement('p');
@@ -25,50 +24,33 @@ export const printPost = () => {
       const titleRestaurant = document.createElement('h3');
       titleRestaurant.textContent = post.restaurant;
       const deleteBtn = document.createElement('button');
-      // deleteBtn.setAttribute('src', 'https://i.postimg.cc/FHqySXyf/delete-FILL0-wght400-GRAD0-opsz48.png');
-
       deleteBtn.setAttribute('id', 'deleteBtn');
-      titleRestaurant.setAttribute('id', 'titleRestaurant');
-      contentReview.setAttribute('id', 'contentReview');
+      const likeBtn = document.createElement('button');
+      likeBtn.classList = 'likeBtn';
+      likeBtn.setAttribute('src', 'https://i.postimg.cc/9fBgHBx6/iconmonstr-heart-thin-48.png');
+      const editBtn = document.createElement('button');
+      editBtn.setAttribute('id', 'editBtn');
       deleteBtn.addEventListener('click', async () => {
         await deletePost(docs.id);
       });
+      // if (savePost.author === user) {
+      //   const deleteBtn = document.createElement('button');
+      //   deleteBtn.setAttribute('id', 'deleteBtn');
+      //   print.append(titleRestaurant, contentReview, deleteBtn);
+      //   deleteBtn.addEventListener('click', async () => {
+      //     await deletePost(docs.id);
+      //   });
+      // } else {
+      //   console.log(savePost.author, user);
+      //   console.log('no hay user');
+      // }
 
-      print.append(titleRestaurant, contentReview, deleteBtn);
+      titleRestaurant.setAttribute('id', 'titleRestaurant');
+      contentReview.setAttribute('id', 'contentReview');
+      print.append(titleRestaurant, contentReview, deleteBtn, editBtn, likeBtn);
       div.append(print);
     });
+    // deleteBtn.setAttribute('src', 'https://i.postimg.cc/FHqySXyf/delete-FILL0-wght400-GRAD0-opsz48.png');
   });
-
-  /** intento 1 */
-  // const db = getFirestore(app);
-  // const colRef = collection(db, 'post');
-  // onSnapshot(colRef, (snapsShot) => {
-  //   const reviews = [];
-  //   div.innerHTML = '';
-  //   snapsShot.docs.forEach((docs) => {
-  //     reviews.push({ ...docs.data() });
-  //   });
-  //   // crea las tarjetas por cada post
-  //   reviews.forEach((post) => {
-  //     // console.log(post);
-  //     const print = document.createElement('div');
-  //     const titleRestaurant = document.createElement('h3');
-  //     const contentReview = document.createElement('p');
-  //     const deleteBtn = document.createElement('button');
-  //     // deleteBtn.setAttribute('src', 'https://i.postimg.cc/FHqySXyf/delete-FILL0-wght400-GRAD0-opsz48.png');
-
-  //     deleteBtn.setAttribute('id', 'deleteBtn');
-  //     print.classList = 'printPost';
-  //     titleRestaurant.textContent = post.restaurant;
-  //     titleRestaurant.setAttribute('id', 'titleRestaurant');
-  //     contentReview.textContent = post.review;
-  //     contentReview.setAttribute('id', 'contentReview');
-  //     print.append(titleRestaurant, contentReview, deleteBtn);
-  //     div.append(print);
-  //     deleteBtn.addEventListener('click', deletePost(doc.id));
-  //     console.log(doc.id);
-  //   });
-  // });
-
   return div;
 };

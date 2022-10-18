@@ -10,7 +10,6 @@ import { login } from './components/login.js';
 import { wall } from './components/wall/wall.js';
 
 const auth = getAuth();
-
 const root = document.getElementById('root');
 
 const routes = {
@@ -42,8 +41,9 @@ onAuthStateChanged(auth, (user) => {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
     // eslint-disable-next-line no-unused-vars
+    const users = auth.currentUser.uid;
     const uid = user.uid;
-    console.log(user.email);
+    console.log(user.email, uid);
     onNavigate('/wall');
     // ...
   } else {
