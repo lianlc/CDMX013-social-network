@@ -1,10 +1,12 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 import { savePost } from '../../lib/firestore.js';
 
 export const Publicar = () => {
   const div = document.createElement('div');
   const messageWelcome = document.createElement('h1');
   const inputRestaurant = document.createElement('input');
-  const inputReview = document.createElement('input');
+  const inputReview = document.createElement('textArea');
   const buttonShare = document.createElement('button');
   inputReview.placeholder = '¿Cómo fue tu experiencia?';
   inputReview.setAttribute('id', 'inputReview');
