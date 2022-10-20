@@ -43,7 +43,7 @@ onAuthStateChanged(auth, (user) => {
     // eslint-disable-next-line no-unused-vars
     const users = auth.currentUser.uid;
     const uid = user.uid;
-    console.log(user.email, uid);
+    console.log(user.email, uid, users);
     onNavigate('/wall');
     // ...
   } else {
