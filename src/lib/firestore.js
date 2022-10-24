@@ -1,61 +1,27 @@
+/* eslint-disable import/no-unresolved */
 import {
-  getFirestore, addDoc, collection, onSnapshot, query, where,
+  getFirestore, addDoc, collection, doc, deleteDoc, onSnapshot, updateDoc,
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js';
-
+import { auth } from './auth.js';
 import { app } from './config.js';
 
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
-// add documents
-const colRef = collection(db, 'post');
 
-export const savePost = (restaurant, review) => addDoc(collection(db, 'post'), { restaurant, review });
+export const savePost = (restaurant, review) => {
+  const dateCreated = Date.now();
+  const user = auth.currentUser.uid;
+  return addDoc(collection(db, 'post'), {
+    restaurant, review, dateCreated, user,
+  });
+};
 
-// listen when db have changes.
-// export const getPost = () => onSnapshot((collection(db, 'post')));
+export const deletePost = (id) => deleteDoc(doc(db, 'post', id));
+export const getPost = (callback) => {
+  onSnapshot(collection(db, 'post'), callback);
+};
 
-// export const getPost = () => onSnapshot(colRef, (snapsShot) => {
-//   const reviews = [];
-//   snapsShot.docs.forEach((doc) => {
-//     reviews.push({ ...doc.data() });
-//   });
-//   //console.log(reviews);
-//   return reviews;
-// });
-
-// export const getPost = () => onSnapshot(colRef, (snapsShot) => {
-//   const reviews = [];
-//   snapsShot.docs.forEach((doc) => {
-//     reviews.push({ ...doc.data() });
-//   });
-//   console.log(reviews);
-// });
-
-/** Prueba 1 */
-// import { collection, query, where, onSnapshot } from "firebase/firestore";
-
-// const q = query(collection(db, "cities"), where("state", "==", "CA"));
-// const unsubscribe = onSnapshot(q, (querySnapshot) => {
-//   const cities = [];
-//   querySnapshot.forEach((doc) => {
-//       cities.push(doc.data().name);
-//   });
-//   console.log("Current cities in CA: ", cities.join(", "));
-// });
-
-// export const showDatos = (input) =>
-//  db.collection('post').onSnapshot((querySnapshot) => {
-//     input.innerHTML = '';
-//     querySnapshot.forEach((doc) => {
-//     console.log(`${doc.id} => ${doc.data()}`);
-//     input.innerHTML = + =
-//   });
-// });
-
-// export const getPosts = () => {
-//   db.collection('post').get().then((querySnapshot) => {
-//     querySnapshot.forEach((doc) => {
-//       document.getElementById('wall').innerHTML = `${doc.data().restaurant}`;
-//     });
-//   });
-// };
+export const editPost = (id, newReview, newRestaurant) => updateDoc(doc(db, 'post', id), {
+  review: newReview,
+  restaurant: newRestaurant,
+});

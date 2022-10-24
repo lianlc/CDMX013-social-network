@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable no-console */
 import {
   getAuth,
   onAuthStateChanged,
@@ -8,7 +10,6 @@ import { login } from './components/login.js';
 import { wall } from './components/wall/wall.js';
 
 const auth = getAuth();
-
 const root = document.getElementById('root');
 
 const routes = {
@@ -39,14 +40,13 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    console.log(user.email);
+    // eslint-disable-next-line no-unused-vars
     onNavigate('/wall');
     // ...
   } else {
     // User is signed out
     // ...
     onNavigate('/');
-    console.log('Nel valedora');
+    console.log('No cuentas con las credenciales de acceso.');
   }
 });

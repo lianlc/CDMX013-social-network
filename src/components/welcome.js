@@ -31,11 +31,9 @@ export const Welcome = () => {
     'https://i.postimg.cc/c1Trf3qD/btn-google-signin-light-normal-web.png',
   );
   logoGit.setAttribute('src', 'https://i.postimg.cc/Gmwf6M09/github.png');
-  // logoTwitter.setAttribute('src', 'https://i.postimg.cc/jjgYVzQ9/twitter.png');
   logos.classList = 'logos';
   logoGoogle.classList = 'logoGoogleStyle';
   logoGit.classList = 'logoStyle';
-  // logoTwitter.classList = 'logoStyle';
   buttonLogin.classList = 'buttonStyle';
 
   buttonLogin.addEventListener('click', () => {
@@ -47,7 +45,7 @@ export const Welcome = () => {
   });
   logoGoogle.addEventListener('click', () => {
     loginwithGoogle();
-    // onNavigate('/wall');
+    onNavigate('/wall');
   });
   logoGit.addEventListener('click', () => {
     loginWhitGitHub();

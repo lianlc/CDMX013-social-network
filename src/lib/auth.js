@@ -1,3 +1,7 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-alert */
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -7,18 +11,19 @@ import {
   signInWithRedirect,
   signOut,
   GithubAuthProvider,
+// eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
-
 import { app } from './config.js';
 
-const auth = getAuth();
+export const auth = getAuth();
 
 export const providerGoogle = new GoogleAuthProvider();
 
 // INICIO DE SESION CON CORREO Y CONTRASEÑA * *
 export const addUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 export const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
-// INICIO DE SESION CON GOOGLE  * *
+
+// INICIO DE SESION CON GOOGLE * *
 export const loginwithGoogle = () => {
   signInWithRedirect(auth, providerGoogle);
   getRedirectResult(auth)
@@ -27,14 +32,12 @@ export const loginwithGoogle = () => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       // The signed-in user info.
-      const user = result.user;
-      console.log(user.email);
+      const users = result.user;
     })
     .catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(errorMessage, errorCode);
       // The email of the user's account used.
       const email = error.customData.email;
       // The AuthCredential type that was used.
@@ -42,7 +45,6 @@ export const loginwithGoogle = () => {
       // ...
     });
 };
-
 // Sesión con github
 export const providerGitHub = new GithubAuthProvider();
 export const loginWhitGitHub = () => {
@@ -78,6 +80,7 @@ export const close = () => {
     .then(() => {
       // Sign-out successful.
     })
+    // eslint-disable-next-line no-unused-vars
     .catch((error) => {
       // An error happened.
     });
