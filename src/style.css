@@ -112,7 +112,7 @@ div{
   height: 150px;
  
 }
-#buttonShare{
+.buttonS{
   background-color: #B2CA10;
   border-radius: 10px;
   color:#ffffff;
@@ -127,7 +127,7 @@ div{
   font-size: larger;
 }
 
-#deleteBtn, #editBtn{
+#deleteBtn, .editBtn{
   background-repeat: no-repeat;
   background-position: center;
   width: 32px;

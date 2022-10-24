@@ -41,15 +41,12 @@ onAuthStateChanged(auth, (user) => {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
     // eslint-disable-next-line no-unused-vars
-    const users = auth.currentUser.uid;
-    const uid = user.uid;
-    console.log(user.email, uid, users);
     onNavigate('/wall');
     // ...
   } else {
     // User is signed out
     // ...
     onNavigate('/');
-    console.log('Nel valedora');
+    console.log('No cuentas con las credenciales de acceso.');
   }
 });

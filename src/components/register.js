@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { onNavigate } from '../main.js';
 import { addUser } from '../lib/auth.js';
 
@@ -42,21 +43,15 @@ export const register = () => {
     addUser(mail, password)
       .then((userCredential) => {
         // Signed in
+        // eslint-disable-next-line no-unused-vars
         const user = userCredential.user;
         onNavigate('/wall');
-        console.log('se registro en mi red social fiu fiu ');
-        // ...
       })
       .catch((error) => {
+        // eslint-disable-next-line no-unused-vars
         const errorCode = error.code;
         const errorMessage = error.message;
-        // ..
-        console.log(
-          'nel no pues acceder a la red social fiu fiu',
-          errorMessage,
-        );
       });
-    // onNavigate('/login');
   });
 
   // Insertar los elementos en el div

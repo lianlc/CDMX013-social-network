@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 // import { singInUserWithProviders } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 import { onNavigate } from '../main.js';
 import { loginUser } from '../lib/auth.js';
@@ -34,7 +35,7 @@ export const login = () => {
   inputPass.setAttribute('type', 'password');
   imgUser.setAttribute(
     'src',
-    'https://i.postimg.cc/fW6CmMs0/iconmonstr-user-19-240.png'
+    'https://i.postimg.cc/fW6CmMs0/iconmonstr-user-19-240.png',
   );
   imgUser.classList = 'logoUser';
   title.classList = 'logoTitle';
@@ -50,22 +51,16 @@ export const login = () => {
     loginUser(mail, password)
       .then((userCredential) => {
         // Signed in
+        // eslint-disable-next-line no-unused-vars
         const user = userCredential.user;
-        console.log('Bienvenid@');
         onNavigate('/wall');
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        console.log('No bienvenido', errorMessage);
+        // console.log('No bienvenido', errorMessage);
+        alert(`No puedes acceder a este sitio porque: ${errorMessage}`);
       });
   });
-
-  // buttonBack.addEventListener('click', () => {
-  //  onNavigate('/');
-  // });
-
-  // DEVUELE EL DIV **
   return div;
 };

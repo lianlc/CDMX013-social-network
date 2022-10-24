@@ -21,6 +21,7 @@ export const getPost = (callback) => {
   onSnapshot(collection(db, 'post'), callback);
 };
 
-export const editPost = (id, newReview) => updateDoc(doc(db, 'post', id), {
+export const editPost = (id, newReview, newRestaurant) => updateDoc(doc(db, 'post', id), {
   review: newReview,
+  restaurant: newRestaurant,
 });
